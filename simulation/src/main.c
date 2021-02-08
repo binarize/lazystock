@@ -21,9 +21,7 @@ int main(int argc, char *argv[])
   world = world_create();
   printf("Hello world\n"); // the one time this is actually applicable!
 
-  // Seed it with some original data
-  // @NOTE - loading/saving eventually
-  // @NOTE - pass a random seed eventually
+  // Seed the world
   world_seed(world, 0);
 
   // Run the simulation for a year.

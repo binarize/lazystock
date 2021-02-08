@@ -2,14 +2,10 @@
 #include <stdlib.h> // malloc()
 
 #include "person.h"
+#include "resource.h"
 
 #ifndef WORLD_H
 #define WORLD_H
-
-
-
-
-
 
 #define WORLD_DATE_MINUTES_PER_HOUR 60
 #define WORLD_DATE_HOURS_PER_DAY 24
@@ -25,6 +21,7 @@
 #define WORLD_SECONDS_PER_TICK (60*60*24)
 #define WORLD_TICKS_PER_YEAR (WORLD_DATE_SECONDS_PER_YEAR / WORLD_SECONDS_PER_TICK)
 
+#define PERSON_MAX_LIFESPAN (100*WORLD_TICKS_PER_YEAR)
 
 // our custom date structure.
 typedef struct date {
@@ -37,10 +34,16 @@ typedef struct date {
 } date_t;
 
 typedef struct world {
+
   uint64_t tick;          // how many ticks in total
   date_t date;            // current date (based on the tick)
-  person_t ** people;
-  uint64_t people_len;
+
+  person_t ** people;         // every person in the world
+  uint64_t people_len;        // number of people in teh world
+
+  resource_t ** resources;
+  uint64_t resources_len;
+
 } world_t;
 
 extern world_t * world;
@@ -50,6 +53,7 @@ void world_destroy(world_t * world);
 void world_seed(world_t * world, uint64_t seed);
 void world_tick(world_t * world);
 person_t * world_spawn_person(world_t * world);
+resource_t * world_spawn_resource(world_t * world);
 void world_date_from_tick(uint64_t tick, date_t * date);
 
 #endif

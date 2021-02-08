@@ -61,10 +61,10 @@ else
 
 		ifeq ($(UNAME_P),arm)
 			# Compile SDL from source for now on ARM.
-			CFLAGS +=  -D OSX -D OSX_ARM
+			CFLAGS += -D OSX -D OSX_ARM
 		else
 			# Include SDL library normally on intel.
-			CFLAGS += `-D OSX -D OSX_INTEL
+			CFLAGS += -D OSX -D OSX_INTEL
 		endif
 	endif
 endif
@@ -85,5 +85,3 @@ clean:
 
 test: clean ../build/bin
 	../build/bin
-
-# -include $(C_OBJECTS:.o=.d)

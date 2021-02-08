@@ -84,7 +84,7 @@ Thinking about how individual entities will work and their data structure
 ##### Fields
 - Name - human readable string
 - Ingredients - Array of products (and quantities) needed to manufacture 1 of this product
-- Expires - Product is destroyed x ticks after creation (optional)
+- Lifespan - Product is destroyed x ticks after creation (optional)
 - Essential - This is a classified as an essential product to keep people alive?
 - Tradable - Can the product be traded?
 ##### Functions
